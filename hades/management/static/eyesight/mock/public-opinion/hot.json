@@ -1,0 +1,50 @@
+{
+    "status": 200,
+    "message": "success",
+    "data": [
+        {
+            "label": "限产限行",
+            "fontSize": "12"
+        },
+        {
+            "label": "小黄车",
+            "fontSize": "14"
+        },
+        {
+            "label": "摩拜单车",
+            "fontSize": "16"
+        },
+        {
+            "label": "摩拜小黄车",
+            "fontSize": "18"
+        },
+        {
+            "label": "HelloBike",
+            "fontSize": "20"
+        },
+        {
+            "label": "滴滴共享单车",
+            "fontSize": "13"
+        },
+        {
+            "label": "小蓝单车",
+            "fontSize": "15"
+        },
+        {
+            "label": "胡玮炜",
+            "fontSize": "22"
+        },
+        {
+            "label": "押金",
+            "fontSize": "13"
+        },
+        {
+            "label": "王晓峰",
+            "fontSize": "22"
+        },
+        {
+            "label": "共享单车",
+            "fontSize": "22"
+        }
+    ]
+}

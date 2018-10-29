@@ -1,0 +1,18 @@
+{
+    "status": 200,
+    "message": "success",
+    "data": [
+        {
+            "channel": "新闻",
+            "sum": 100
+        },
+        {
+            "channel": "社交",
+            "sum": 100
+        },
+        {
+            "channel": "官媒",
+            "sum": 100
+        }
+    ]
+}

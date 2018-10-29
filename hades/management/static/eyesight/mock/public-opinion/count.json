@@ -1,0 +1,13 @@
+{
+    "status": 200,
+    "message": "success",
+    "data": {
+        "sum": 1800,
+        "news": 1231230,
+        "keyword": 123123,
+        "positive": 300,
+        "negative": 700,
+        "positiveChange": "+2.5%",
+        "negativeChange": "-2.5%"
+    }
+}

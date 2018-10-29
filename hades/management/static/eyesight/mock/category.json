@@ -1,0 +1,22 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "name": "中文",
+      "percent": 20
+    },
+    {
+      "name": "英文",
+      "percent": 50
+    },
+    {
+      "name": "德文",
+      "percent": 80
+    },
+    {
+      "name": "法文",
+      "percent": 40
+    }
+  ]
+}

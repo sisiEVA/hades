@@ -1,0 +1,129 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>舆情监控- 舆情安全可视化</title>
+    <meta name="description" content="舆情监控- 舆情安全可视化">
+    <link rel="stylesheet" href="{% static 'eyesight/css/public-opinion.css' %}">
+    <link rel="stylesheet" href="{% static 'eyesight/css/warning.css' %}">
+
+    <script src="{% static 'eyesight/js/jquery.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/countUp.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/echarts.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/jquery.svg3dtagcloud.js' %}"></script>
+    <script src="{% static 'eyesight/js/public-opinion.js' %}"></script>
+    <script src="{% static 'eyesight/js/warning.js' %}"></script>
+<body>
+<div class="img-pre-loader">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-1.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-2.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-3.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-4.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-5.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-6.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-7.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-8.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-9.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-10.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-11.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-12.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-13.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-14.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-15.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-16.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-17.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-18.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-19.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-20.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-21.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-22.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-23.png' %}">
+    <img src="{% static 'eyesight/img/public-opinion/channel-process-bg-24.png' %}">
+</div>
+<div class="wrapper pos-a">
+    <h1 class="title">舆情监控- 舆情安全可视化</h1>
+    <!--媒体总量-->
+    <div class="count pos-a">
+        <div class="count-sum pos-a" id="j-count-sum">100001000</div>
+        <div class="count-news pos-a">今日新闻量<div id="j-count-news"></div></div>
+        <div class="count-keyword pos-a">关键字数量<div id="j-count-keyword"></div></div>
+        <div class="count-positive pos-a">
+            <svg class="count-circle pos-a">
+                <circle cx="4.6vh" cy="4.6vh" r="3.8vh" stroke-width="0.8vh" stroke="#083f55" fill="none"></circle>
+                <circle class="transition" id="j-circle-positive-bar" cx="4.6vh" cy="4.6vh" r="3.8vh" stroke-width="0.8vh" stroke="#4b904c" fill="none" stroke-dasharray="0 1069"></circle>
+            </svg>
+            <div class="count-circle-inner pos-a"><div class="count-circle-bg" id="j-circle-positive-bg"></div>正面</div>
+            <div class="count-change count-positive-change pos-a" id="j-count-positive-change"></div>
+        </div>
+        <div class="count-negative pos-a">
+            <svg class="count-circle pos-a">
+                <circle cx="4.6vh" cy="4.6vh" r="3.8vh" stroke-width="0.8vh" stroke="#083f55" fill="none"></circle>
+                <circle class="transition" id="j-circle-negative-bar" cx="4.6vh" cy="4.6vh" r="3.8vh" stroke-width="0.8vh" stroke="#d96167" fill="none" stroke-dasharray="0 1069"></circle>
+            </svg>
+            <div class="count-circle-inner pos-a"><div class="count-circle-bg" id="j-circle-negative-bg"></div>负面</div>
+            <div class="count-change count-negative-change pos-a" id="j-count-negative-change"></div>
+        </div>
+    </div>
+    <!--/媒体总量-->
+    <!--重点TOP10-->
+    <div class="primary pos-a" id="j-primary"></div>
+    <!--/重点TOP10-->
+    <!--类型分布-->
+    <div class="type pos-a" id="j-type"></div>
+    <!--/类型分布-->
+    <!--趋势-->
+    <div class="trend pos-a" id="j-trend"></div>
+    <!--/趋势-->
+    <!--渠道-->
+    <div class="channel pos-a">
+        <div class="channel-i">
+            <div class="channel-name pos-a j-channel-name"></div>
+            <div class="channel-circle-box pos-a">
+                <div class="animated infinite channel-circle pos-a"></div>
+                <div class="channel-circle-a pos-a"></div>
+                <div class="channel-circle-b pos-a"></div>
+                <div class="animated infinite channel-circle-c pos-a"></div>
+                <div class="animated infinite channel-circle-process pos-a"></div>
+                <div class="channel-circle-sum pos-a j-channel-sum"></div>
+            </div>
+        </div>
+        <div class="channel-i">
+            <div class="channel-name pos-a j-channel-name"></div>
+            <div class="channel-circle-box pos-a">
+                <div class="animated infinite channel-circle pos-a"></div>
+                <div class="channel-circle-a pos-a"></div>
+                <div class="channel-circle-b pos-a"></div>
+                <div class="animated infinite channel-circle-c pos-a"></div>
+                <div class="animated infinite channel-circle-process pos-a"></div>
+                <div class="channel-circle-sum pos-a j-channel-sum"></div>
+            </div>
+        </div>
+        <div class="channel-i">
+            <div class="channel-name pos-a j-channel-name"></div>
+            <div class="channel-circle-box pos-a">
+                <div class="animated infinite channel-circle pos-a"></div>
+                <div class="channel-circle-a pos-a"></div>
+                <div class="channel-circle-b pos-a"></div>
+                <div class="animated infinite channel-circle-c pos-a"></div>
+                <div class="animated infinite channel-circle-process pos-a"></div>
+                <div class="channel-circle-sum pos-a j-channel-sum"></div>
+            </div>
+        </div>
+    </div>
+    <!--/渠道-->
+    <!--热词-->
+    <div class="hot pos-a">
+        <div class="hot-box" id="j-hot-box"></div>
+    </div>
+    <!--/热词-->
+    <!--新闻-->
+    <div class="news pos-a">
+        <div class="news-ls" id="j-news-ls"></div>
+    </div>
+    <!--/新闻-->
+</div>
+</body>
+</html>

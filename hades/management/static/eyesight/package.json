@@ -1,0 +1,22 @@
+{
+  "name": "deva-eye-static",
+  "version": "1.0.0",
+  "description": "前端静态页面",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp sass:watch",
+    "build": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

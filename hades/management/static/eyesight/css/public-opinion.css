@@ -1,0 +1,523 @@
+@charset "UTF-8";
+/**
+ * 不管多大的屏幕，必须是比例对的，而且是一屏能展示下
+ * 单位转换：以vh来作为单位计算，设计稿是 1920x1080，100vh=1080px, 1vh=10.8px
+ */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  font-family: sans-serif;
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent; }
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #00010a;
+  color: #fff; }
+
+a {
+  text-decoration: none; }
+
+@font-face {
+  font-family: "DigifaceWide";
+  src: url("font/DigifaceWide.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
+.pos-a {
+  position: absolute; }
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.flex-item {
+  -webkit-box-flex: 1;
+  -ms-flex: auto;
+  flex: auto; }
+
+.animated {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+.img-pre-loader {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden; }
+
+.wrapper {
+  width: 177.77778vh;
+  height: 100vh;
+  left: 50%;
+  top: 0;
+  background: url("../img/public-opinion/page-bg.jpg") no-repeat center top;
+  background-size: 100% 100%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.title {
+  text-align: center;
+  font-size: 2.96296vh;
+  font-weight: normal; }
+
+.count {
+  left: 5.92593vh;
+  top: 5.18519vh;
+  color: #fefefe;
+  font-size: 1.2963vh; }
+  .count-sum {
+    top: 6.66667vh;
+    left: 3.61111vh;
+    font-family: DigifaceWide, sans-serif;
+    font-size: 2.03704vh;
+    line-height: 1.75;
+    letter-spacing: 0.8em;
+    padding-left: 0.27778vh; }
+  .count-news, .count-keyword {
+    padding: 0.55556vh 0 0 1.11111vh;
+    top: 11.38889vh;
+    white-space: nowrap; }
+    .count-news > div, .count-keyword > div {
+      margin-top: 0.74074vh; }
+  .count-news {
+    left: 3.61111vh; }
+  .count-keyword {
+    left: 22.77778vh; }
+  .count-positive, .count-negative {
+    top: 19.44444vh;
+    height: 12.03704vh;
+    width: 14.62963vh; }
+  .count-positive {
+    left: 3.61111vh;
+    color: #4b904c; }
+  .count-circle, .count-circle-inner {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  .count-circle {
+    width: 9.25926vh;
+    height: 9.25926vh;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+    .count-circle .transition {
+      -webkit-transition: stroke-dasharray 1s;
+      transition: stroke-dasharray 1s; }
+  .count-circle-inner {
+    overflow: hidden;
+    width: 5.18519vh;
+    height: 5.18519vh;
+    line-height: 5.18519vh;
+    text-align: center;
+    font-size: 1.66667vh;
+    border: 1px solid #09b8ca;
+    border-radius: 50%; }
+  .count-circle-bg {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url("../img/public-opinion/count-inner-bg.jpg") repeat-y 0 0;
+    background-size: 100% auto;
+    -webkit-transition: top 1s;
+    transition: top 1s; }
+  .count-negative {
+    left: 22.77778vh;
+    color: #d96167; }
+  .count-change {
+    left: 0.92593vh;
+    bottom: 0.46296vh; }
+
+.primary {
+  left: 5.92593vh;
+  top: 39vh;
+  font-size: 1.2963vh;
+  padding: 9.72222vh 0 0 3.61111vh;
+  line-height: 1.66667vh; }
+  .primary-i {
+    overflow: hidden;
+    margin-bottom: 2.40741vh; }
+  .primary-media {
+    color: #fefefe;
+    float: left;
+    width: 5.8em;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+  .primary-bar {
+    position: relative;
+    float: left;
+    width: 24.07407vh;
+    height: 1.9vh;
+    overflow: hidden;
+    background: #0e1629; }
+  .primary-positive, .primary-negative {
+    -webkit-transition: width 1.5s;
+    transition: width 1.5s;
+    text-align: right;
+    text-indent: 0.2em;
+    float: left;
+    position: relative;
+    width: 0;
+    height: 1.9vh;
+    line-height: 1.95vh;
+    overflow: hidden;
+    -webkit-animation: colorFadeIn 1500ms;
+    animation: colorFadeIn 1500ms;
+    color: #0E1615; }
+  .primary-positive {
+    background: #01b4c8; }
+  .primary-negative {
+    background: #178df4; }
+
+@-webkit-keyframes colorFadeIn {
+  from {
+    color: transparent; }
+  30% {
+    color: transparent; }
+  to {
+    color: #0E1615; } }
+
+@keyframes colorFadeIn {
+  from {
+    color: transparent; }
+  30% {
+    color: transparent; }
+  to {
+    color: #0E1615; } }
+
+.type {
+  left: 50.83333vh;
+  top: 10vh;
+  padding: 6.48148vh 0 0 2.77778vh; }
+  .type-i {
+    position: relative;
+    float: left;
+    margin-right: 3.24074vh;
+    width: 11.2963vh;
+    height: 17.59259vh;
+    text-align: center;
+    color: #fff; }
+  .type-bubble {
+    width: 11.2963vh;
+    height: 13.98148vh;
+    font-size: 1.2963vh;
+    white-space: nowrap;
+    background: url("../img/public-opinion/type-bubble.png") no-repeat center 0;
+    background-size: cover;
+    -webkit-animation: zoomIn 1s linear;
+    animation: zoomIn 1s linear;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%; }
+    .type-bubble span {
+      padding: 2.77778vh 0 0.92593vh;
+      display: block;
+      color: #02081c;
+      font-size: 2.96296vh; }
+  .type-name {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 1.66667vh; }
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3); }
+  50% {
+    opacity: 1; } }
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3); }
+  50% {
+    opacity: 1; } }
+
+.trend {
+  left: 50.83333vh;
+  top: 36.85185vh;
+  margin: 4.62963vh 0 0;
+  width: 74.07407vh;
+  height: 27.77778vh; }
+
+.channel {
+  left: 50.83333vh;
+  top: 71.85185vh;
+  padding: 1.66667vh 0 0 1.85185vh; }
+  .channel-i {
+    position: relative;
+    float: left;
+    margin-right: 6.48148vh;
+    width: 19.62963vh;
+    height: 23.61111vh; }
+  .channel-name {
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2.03704vh; }
+  .channel-circle-box {
+    bottom: 0;
+    width: 19.62963vh;
+    height: 19.62963vh; }
+  .channel-circle {
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-animation: channelFlash 3s linear;
+    animation: channelFlash 3s linear;
+    z-index: 1; }
+  .channel-circle-a {
+    border: 0.37037vh solid #8baab8;
+    background: #1b294a;
+    width: 13.88889vh;
+    height: 13.88889vh;
+    border-radius: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2; }
+  .channel-circle-b {
+    background: #151d47;
+    width: 10.55556vh;
+    height: 10.55556vh;
+    border-radius: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3; }
+  .channel-circle-c {
+    background: url("../img/public-opinion/channel-rotate-bg.png") no-repeat center center;
+    background-size: cover;
+    width: 10.18519vh;
+    height: 10.18519vh;
+    border-radius: 50%;
+    z-index: 4;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-animation: channelRotate 6s steps(6, start);
+    animation: channelRotate 6s steps(6, start); }
+  .channel-circle-process {
+    width: 7.59259vh;
+    height: 7.59259vh;
+    background: url("../img/public-opinion/channel-process-bg-0.png") no-repeat center center;
+    background-size: cover;
+    z-index: 5;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-animation: channelProcess 24s linear;
+    animation: channelProcess 24s linear; }
+  .channel-circle-sum {
+    width: 100%;
+    height: 100%;
+    line-height: 19.62963vh;
+    text-align: center;
+    z-index: 6; }
+
+@-webkit-keyframes channelFlash {
+  from, 50%, to {
+    -webkit-box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.2); }
+  25%, 75% {
+    -webkit-box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.1); } }
+
+@keyframes channelFlash {
+  from, 50%, to {
+    -webkit-box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.2); }
+  25%, 75% {
+    -webkit-box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 30px 3px rgba(255, 255, 255, 0.1); } }
+
+@-webkit-keyframes channelRotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes channelRotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes channelProcess {
+  4% {
+    background-image: url("../img/public-opinion/channel-process-bg-1.png"); }
+  8% {
+    background-image: url("../img/public-opinion/channel-process-bg-2.png"); }
+  12% {
+    background-image: url("../img/public-opinion/channel-process-bg-3.png"); }
+  16% {
+    background-image: url("../img/public-opinion/channel-process-bg-4.png"); }
+  20% {
+    background-image: url("../img/public-opinion/channel-process-bg-5.png"); }
+  24% {
+    background-image: url("../img/public-opinion/channel-process-bg-6.png"); }
+  28% {
+    background-image: url("../img/public-opinion/channel-process-bg-7.png"); }
+  32% {
+    background-image: url("../img/public-opinion/channel-process-bg-8.png"); }
+  36% {
+    background-image: url("../img/public-opinion/channel-process-bg-9.png"); }
+  40% {
+    background-image: url("../img/public-opinion/channel-process-bg-10.png"); }
+  44% {
+    background-image: url("../img/public-opinion/channel-process-bg-11.png"); }
+  48% {
+    background-image: url("../img/public-opinion/channel-process-bg-12.png"); }
+  52% {
+    background-image: url("../img/public-opinion/channel-process-bg-13.png"); }
+  56% {
+    background-image: url("../img/public-opinion/channel-process-bg-14.png"); }
+  60% {
+    background-image: url("../img/public-opinion/channel-process-bg-15.png"); }
+  64% {
+    background-image: url("../img/public-opinion/channel-process-bg-16.png"); }
+  68% {
+    background-image: url("../img/public-opinion/channel-process-bg-17.png"); }
+  72% {
+    background-image: url("../img/public-opinion/channel-process-bg-18.png"); }
+  76% {
+    background-image: url("../img/public-opinion/channel-process-bg-19.png"); }
+  80% {
+    background-image: url("../img/public-opinion/channel-process-bg-20.png"); }
+  84% {
+    background-image: url("../img/public-opinion/channel-process-bg-21.png"); }
+  88% {
+    background-image: url("../img/public-opinion/channel-process-bg-22.png"); }
+  92% {
+    background-image: url("../img/public-opinion/channel-process-bg-23.png"); }
+  96% {
+    background-image: url("../img/public-opinion/channel-process-bg-24.png"); } }
+
+@keyframes channelProcess {
+  4% {
+    background-image: url("../img/public-opinion/channel-process-bg-1.png"); }
+  8% {
+    background-image: url("../img/public-opinion/channel-process-bg-2.png"); }
+  12% {
+    background-image: url("../img/public-opinion/channel-process-bg-3.png"); }
+  16% {
+    background-image: url("../img/public-opinion/channel-process-bg-4.png"); }
+  20% {
+    background-image: url("../img/public-opinion/channel-process-bg-5.png"); }
+  24% {
+    background-image: url("../img/public-opinion/channel-process-bg-6.png"); }
+  28% {
+    background-image: url("../img/public-opinion/channel-process-bg-7.png"); }
+  32% {
+    background-image: url("../img/public-opinion/channel-process-bg-8.png"); }
+  36% {
+    background-image: url("../img/public-opinion/channel-process-bg-9.png"); }
+  40% {
+    background-image: url("../img/public-opinion/channel-process-bg-10.png"); }
+  44% {
+    background-image: url("../img/public-opinion/channel-process-bg-11.png"); }
+  48% {
+    background-image: url("../img/public-opinion/channel-process-bg-12.png"); }
+  52% {
+    background-image: url("../img/public-opinion/channel-process-bg-13.png"); }
+  56% {
+    background-image: url("../img/public-opinion/channel-process-bg-14.png"); }
+  60% {
+    background-image: url("../img/public-opinion/channel-process-bg-15.png"); }
+  64% {
+    background-image: url("../img/public-opinion/channel-process-bg-16.png"); }
+  68% {
+    background-image: url("../img/public-opinion/channel-process-bg-17.png"); }
+  72% {
+    background-image: url("../img/public-opinion/channel-process-bg-18.png"); }
+  76% {
+    background-image: url("../img/public-opinion/channel-process-bg-19.png"); }
+  80% {
+    background-image: url("../img/public-opinion/channel-process-bg-20.png"); }
+  84% {
+    background-image: url("../img/public-opinion/channel-process-bg-21.png"); }
+  88% {
+    background-image: url("../img/public-opinion/channel-process-bg-22.png"); }
+  92% {
+    background-image: url("../img/public-opinion/channel-process-bg-23.png"); }
+  96% {
+    background-image: url("../img/public-opinion/channel-process-bg-24.png"); } }
+
+.hot {
+  left: 130.46296vh;
+  top: 5.18519vh; }
+  .hot-box {
+    position: absolute;
+    top: 7.40741vh;
+    left: 1.85185vh;
+    width: 37.5vh;
+    height: 29.62963vh; }
+  .hot-tags {
+    display: none; }
+
+.news {
+  top: 44.44444vh;
+  left: 130.46296vh; }
+  .news-ls {
+    position: absolute;
+    top: 5.92593vh;
+    left: 3.24074vh;
+    overflow: hidden;
+    height: 36.48148vh;
+    width: 35.18519vh; }
+  .news-i {
+    position: relative;
+    font-size: 1.2963vh;
+    padding: 0 1.11111vh 0 1.66667vh;
+    line-height: 2;
+    color: #01b4c8;
+    white-space: nowrap; }
+    .news-i::before {
+      content: '';
+      background: #fff;
+      position: absolute;
+      left: 0.55556vh;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 3px;
+      height: 3px;
+      border-radius: 50%; }
+  .news-title {
+    width: 18.51852vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }

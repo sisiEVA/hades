@@ -1,0 +1,146 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>内网安全--HADES内网可视化</title>
+    <meta name="description" content="内网安全--HADES安全可视化">
+    <link rel="stylesheet" href="{% static 'eyesight/css/hades.css' %}">
+    <link rel="stylesheet" href="{% static 'eyesight/css/warning.css' %}">
+
+    <script src="{% static 'eyesight/js/jquery.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/countUp.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/echarts.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/Chart.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/hades.js' %}"></script>
+    <script src="{% static 'eyesight/js/warning.js' %}"></script>
+
+</head>
+<body>
+<div class="img-pre-loader">
+    <img src="{% static 'eyesight/img/hades/login-bg-0.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-1.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-2.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-3.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-4.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-5.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-6.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-7.png' %}">
+    <img src="{% static 'eyesight/img/hades/login-bg-8.png' %}">
+    <img src="{% static 'eyesight/img/hades/leak-bg-0.png' %}">
+    <img src="{% static 'eyesight/img/hades/leak-bg-1.png' %}">
+    <img src="{% static 'eyesight/img/hades/leak-bg-2.png' %}">
+    <img src="{% static 'eyesight/img/hades/leak-bg-3.png' %}">
+    <img src="{% static 'eyesight/img/hades/leak-bg-4.png' %}">
+    <img src="{% static 'eyesight/img/hades/leak-bg-5.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-0.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-1.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-2.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-3.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-4.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-5.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-6.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-7.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-8.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-9.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-10.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-11.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-12.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-13.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-14.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-15.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-16.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-17.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-18.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-19.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-20.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-21.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-22.png' %}">
+    <img src="{% static 'eyesight/img/hades/attack-bg-23.png' %}">
+</div>
+<div class="wrapper pos-a">
+    <h1 class="title">内网安全--HADES安全可视化</h1>
+    <!--跳板机使用异常量-->
+    <div class="jump pos-a" id="j-jump"></div>
+    <!--/跳板机使用异常量-->
+    <!--登录监控-->
+    <div class="login pos-a">
+        <div class="login-list">
+            <div class="login-item j-login-item"></div>
+            <div class="login-item j-login-item"></div>
+            <div class="login-item j-login-item"></div>
+        </div>
+    </div>
+    <!--/登录监控-->
+    <!--攻击监控-->
+    <div class="attack pos-a">
+        <div class="attack-item j-attack-item"></div>
+        <div class="attack-item j-attack-item"></div>
+        <div class="attack-item j-attack-item"></div>
+        <div class="attack-item j-attack-item"></div>
+        <div class="attack-item j-attack-item"></div>
+    </div>
+    <!--/攻击监控-->
+    <!--国家监控-->
+    <div class="country pos-a">
+        <div class="violence-title">24小时暴力破解IP分布</div>
+        <div class="country-label" id="j-country-label"></div>
+        <div class="country-chart">
+            <div class="icon-arrow"></div>
+            <div class="country-chart-box" id="j-country-box"></div>
+        </div>
+    </div>
+    <!--/国家监控-->
+    <!--攻击态势-->
+    <div class="violence pos-a">
+        <div class="violence-title">24小时主机攻击态势</div>
+        <div class="violence-label">
+            <div class="violence-label-item">
+                <span class="violence-color-1"></span>暴力破解 IP
+            </div>
+            <div class="violence-label-item">
+                <span class="violence-color-2"></span>异常登录
+            </div>
+        </div>
+        <div class="violence-chart">
+            <canvas id="j-violence-chart" width="815" height="210"></canvas>
+        </div>
+    </div>
+    <!--/攻击态势-->
+    <!--漏洞监控-->
+    <div class="leak pos-a">
+        <div class="leak-item j-leak-item"></div>
+        <div class="leak-item j-leak-item"></div>
+        <div class="leak-item j-leak-item"></div>
+        <div class="leak-item j-leak-item"></div>
+    </div>
+    <!--/漏洞监控-->
+    <!--APP渠道-->
+    <div class="channel pos-a">
+        <div id="j-channel-store-list">
+            <div class="channel-store channel-store-1 j-channel-store"></div>
+            <div class="channel-store channel-store-2 j-channel-store"></div>
+            <div class="channel-store channel-store-3 j-channel-store"></div>
+            <div class="channel-store channel-store-4 j-channel-store"></div>
+            <div class="channel-store channel-store-5 j-channel-store"></div>
+            <div class="channel-store channel-store-6 j-channel-store"></div>
+        </div>
+        <div class="channel-circle"></div>
+        <div class="channel-phone">
+            <div class="channel-phone-scan">
+                <div class="channel-phone-needle"></div>
+            </div>
+        </div>
+    </div>
+    <!--/APP渠道-->
+    <!--风险主机-->
+    <div class="host pos-a">
+        <div class="host-label" id="j-host-label"></div>
+        <div class="host-list" id="j-host-list"></div>
+    </div>
+    <!--/风险主机-->
+</div>
+</body>
+</html>

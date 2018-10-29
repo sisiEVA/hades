@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "ip": 1231,
+    "domain": 2647,
+    "port": 476583
+  }
+}

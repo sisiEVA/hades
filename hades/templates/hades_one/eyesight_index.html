@@ -1,0 +1,129 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>安全感知平台 — HADES安全可视化</title>
+    <meta name="description" content="安全感知平台 — HADES安全可视化">
+    <link rel="stylesheet" href="{% static 'eyesight/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'eyesight/css/warning.css' %}">
+
+    <script src="{% static 'eyesight/js/jquery.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/countUp.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/typing.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/echarts.min.js' %}"></script>
+    <script src="{% static 'eyesight/js/china.js' %}"></script>
+    <script src="{% static 'eyesight/js/index.js' %}"></script>
+    <script src="{% static 'eyesight/js/warning.js' %}"></script>
+<body>
+<div class="wrapper pos-a">
+    <h1 class="title">安全感知平台 — HADES可视化一期</h1>
+    <!--实时资产-->
+    <div class="real-assets pos-a">
+        <div class="real-assets-i">
+            <div class="real-assets-label">IP</div>
+            <div class="real-assets-sum" id="j-real-assets-ip"></div>
+            <div class="real-assets-scale"></div>
+        </div>
+        <div class="real-assets-i">
+            <div class="real-assets-label">DOMAIN</div>
+            <div class="real-assets-sum" id="j-real-assets-domain"></div>
+            <div class="real-assets-scale"></div>
+        </div>
+        <div class="real-assets-i">
+            <div class="real-assets-label">PORT</div>
+            <div class="real-assets-sum" id="j-real-assets-port"></div>
+            <div class="real-assets-scale"></div>
+        </div>
+    </div>
+    <!--/实时资产-->
+    <!--VPN登录量-->
+    <div class="vpn-login pos-a" id="j-vpn-login"></div>
+    <!--/VPN登录量-->
+    <!--VPN异常行为-->
+    <div class="vpn-unusual pos-a">
+        <div class="vpn-unusual-legend">
+            <!-- <div class="vpn-unusual-legend-i"><em>正常</em></div> -->
+            <div class="vpn-unusual-legend-i vpn-unusual-legend-warn"><em>异常</em></div>
+        </div>
+        <div class="vpn-unusual-box" id="j-vpn-unusual"></div>
+    </div>
+    <!--/VPN异常行为-->
+    <!--DDOS攻击分布-->
+    <div class="attack-wrapper pos-a">
+        <div class="attack-tit pos-a">DDOS攻击分布</div>
+        <div class="attack pos-a" id="j-attack"></div>
+    </div>
+    <!--/DDOS攻击分布-->
+    <!--国家分布-->
+    <div class="country pos-a">
+        <div class="country-tit">国家分布</div>
+        <div class="flex country-box" id="j-country-box"></div>
+    </div>
+    <!--/国家分布-->
+    <!--类型分布-->
+    <div class="category pos-a">
+        <div class="category-tit">类型分布</div>
+        <div class="category-legend" id="j-category-legend"></div>
+        <div class="category-box flex">
+            <div class="category-i flex-i">
+                <div class="category-i-txt j-category-i-txt"></div>
+                <svg class="circle-wrapper">
+                    <circle cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.65vh" stroke="#b2b2b2" fill="none"></circle>
+                    <circle class="j-circle-bar" cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.95vh" stroke="#f54448" fill="none" stroke-dasharray="0 1069"></circle>
+                </svg>
+            </div>
+            <div class="category-i flex-i">
+                <div class="category-i-txt j-category-i-txt"></div>
+                <svg class="circle-wrapper">
+                    <circle cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.65vh" stroke="#b2b2b2" fill="none"></circle>
+                    <circle class="j-circle-bar" cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.95vh" stroke="#f54448" fill="none" stroke-dasharray="0 1069"></circle>
+                </svg>
+            </div>
+            <div class="category-i flex-i">
+                <div class="category-i-txt j-category-i-txt"></div>
+                <svg class="circle-wrapper">
+                    <circle cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.65vh" stroke="#b2b2b2" fill="none"></circle>
+                    <circle class="j-circle-bar" cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.95vh" stroke="#f54448" fill="none" stroke-dasharray="0 1069"></circle>
+                </svg>
+            </div>
+            <div class="category-i flex-i">
+                <div class="category-i-txt j-category-i-txt"></div>
+                <svg class="circle-wrapper">
+                    <circle cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.65vh" stroke="#b2b2b2" fill="none"></circle>
+                    <circle class="j-circle-bar" cx="4.35vh" cy="4.35vh" r="3.7vh" stroke-width="0.95vh" stroke="#f54448" fill="none" stroke-dasharray="0 1069"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!--/类型分布-->
+    <!--GitLib监控-->
+    <div class="code-scan pos-a">
+        <div class="code-monitor" id="j-code-monitor">
+            <div class="code-monitor-i"></div>
+            <div class="code-monitor-i"></div>
+            <div class="code-monitor-i"></div>
+            <div class="code-monitor-i"></div>
+        </div>
+        <div class="radar-box">
+            <div class="radar">
+                <div class="radar-scan-hand"></div>
+                <div class="radar-inner" id="j-radar-points"></div>
+            </div>
+            <div class="radar-pop" id="j-radar-pop"></div>
+        </div>
+    </div>
+    <!--/GitLib监控-->
+    <!--行为安全事件-->
+    <div class="issues pos-a">
+        <div class="issues-hd">威胁名称</div>
+        <div class="issues-box">
+            <div class="issues-ls" id="j-issues-ls"></div>
+        </div>
+    </div>
+    <!--/行为安全事件-->
+</div>
+</body>
+</html>
