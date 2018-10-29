@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'hades.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'mobikesec',
         'USER': 'root',
-        'PASSWORD': 'xxxx',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '8889',
     },
 }
 

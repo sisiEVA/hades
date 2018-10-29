@@ -1,0 +1,86 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>安全态势感知DEMO</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    </head>
+
+    <body id="top">
+    <div class="wrapper row2">
+        <nav id="mainav" class="hoc clear">
+            <ul class="clear">
+                <li class="active"><a href="index.html">登陆</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="wrapper bgded overlay" style="background-image:url('{% static 'images/demo/backgrounds/01.png' %}');">
+        <div id="pageintro" class="hoc clear">
+            <article class="introtxt">
+                <h2 class="heading">安全态势感知可视化</h2>
+                <p>针对内网安全、主机安全、媒体监控渠道多个方面数据融合为安全态势感知平台</p>
+                <footer>
+                    <ul class="nospace inline pushright">
+                        <li><a class="btn" href="#">安全研究</a></li>
+                        <li><a class="btn inverse" href="#">媒体详情</a></li>
+                    </ul>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <div class="wrapper row4" style="height: 400px;">
+        <div class="hoc container clear">
+            <ul class="nospace elements">
+                <li class="one_third first">
+                    <article>
+                        <figure><img src="{% static 'images/demo/hades1.png' %}" alt="">
+                            <figcaption><a href="/eyesight/">查看详情 &raquo;</a></figcaption>
+                        </figure>
+                        <div class="txtwrap">
+                            <h6 class="heading">网络风险</h6>
+                            <p>针对网络中可能存在的DDOS风险、实时资产概况、VPN登陆详情、GITHUB代码监控、安全事件风险诸多因素进行分析&hellip;</p>
+                        </div>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <figure><img src="{% static 'images/demo/hades2.png' %}" alt="" style="width: 320px;height: 175px;">
+                            <figcaption><a href="/hades2/">查看详情 &raquo;</a></figcaption>
+                    </figure>
+                    <div class="txtwrap">
+                        <h6 class="heading">主机风险</h6>
+                        <p>针对公司内部主机的跳板机登陆情况、异常使用监控、24小时中主机的安全态势、APP渠道监控以及风险主机进行分析&hellip;</p>
+                    </div>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <figure><img src="{% static 'images/demo/hades3.png' %}" alt="" style="width: 320px;height: 175px;">
+                            <figcaption><a href="/hades3/">查看详情 &raquo;</a></figcaption>
+                        </figure>
+                        <div class="txtwrap">
+                            <h6 class="heading">舆情风险</h6>
+                            <p>针对互联网各大媒体新闻的实时监控与情感分析、竞品分析、敏感话题监控等多方面实时输出整合而成&hellip;</p>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JAVASCRIPTS -->
+    <script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+    <!-- IE9 Placeholder Support -->
+    <script src="{% static 'layout/scripts/jquery.placeholder.min.js' %}"></script>
+    <!-- / IE9 Placeholder Support -->
+    </body>
+</html>
