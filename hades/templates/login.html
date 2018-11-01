@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Login Form Template</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="{% static 'assets_auth/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets_auth/font-awesome/css/font-awesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets_auth/css/form-elements.css' %}">
+        <link rel="stylesheet" href="{% static 'assets_auth/css/style.css' %}">
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="{% static 'assets_auth/ico/favicon.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets_auth/ico/apple-touch-icon-144-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'assets_auth/ico/apple-touch-icon-114-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'assets_auth/ico/apple-touch-icon-72-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" href="{% static 'assets_auth/ico/apple-touch-icon-57-precomposed.png' %}">
+
+    </head>
+
+    <body>
+        <!-- Top content -->
+        <div class="top-content" style="background-image:url('{% static 'assets_auth/img/backgrounds/1.jpg' %}');">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>安全感知</strong> 平台登陆</h1>
+                            <div class="description">
+                            	<p>
+	                            	专注安全威胁感知发现 - 创造企业安全价值 ！！！
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>登陆</h3>
+                            		<p>输入用户名和密码(联系管理员索取: 111111):</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-key"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="/online/login/" method="post" class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">用户名</label>
+			                        	<input type="text" name="username" placeholder="用户名..." class="form-username form-control" id="form-username">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">密码</label>
+			                        	<input type="password" name="password" placeholder="密码..." class="form-password form-control" id="form-password">
+			                        </div>
+			                        <button type="submit" class="btn">立即登陆</button>
+                                    <span style="color: red" >{{ warn }}</span>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Javascript -->
+        <script src="{% static 'assets_auth/js/jquery-1.11.1.min.js' %}"></script>
+        <script src="{% static 'assets_auth/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets_auth/js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'assets_auth/js/scripts.js' %}"></script>
+
+        <!--[if lt IE 10]>
+            <script src="assets_auth/js/placeholder.js"></script>
+        <![endif]-->
+    </body>
+</html>

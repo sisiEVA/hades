@@ -4,9 +4,10 @@
     Author: Tsystem
 """
 
-
+from management.auth.auth import ad_login_required
 from django.shortcuts import render
 
 
+@ad_login_required
 def index(request):
     return render(request, 'hades_three/public-opinion.html')
